@@ -1,0 +1,5 @@
+bin/
+obj/
+*.db
+erros.log
+.vs/

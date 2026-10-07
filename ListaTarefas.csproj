@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ListaTarefas</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Driver do banco SQLite (o Visual Studio baixa sozinho ao abrir o projeto) -->
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.10" />
+    <!-- Leitura do arquivo appsettings.json -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Avisa o Visual Studio que estes arquivos são telas (abre no modo Design) -->
+    <Compile Update="Forms\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Copia o appsettings.json para a pasta do executável -->
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
